@@ -43,7 +43,7 @@ public:
     ~Graph();
     //每次读取一个数值，并且跳过一个特殊字符，creatGraph的辅助函数
     int readNumber(char *str);
-    //计算每个节点的度，creatGraph的辅助函数
+    //计算每个节点的度
     void calculateDegree();
     //构造邻接矩阵,构造定点集合，记录client集合
     void creatGraph(int size);

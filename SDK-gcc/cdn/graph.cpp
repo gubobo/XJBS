@@ -6,12 +6,11 @@
 using std::string;
 
 Graph::~Graph(){
-    for(int i=0; i<vertexNumber; i++){
-        delete [] Edge[i];
-    }
-    delete [] Vertex;
 }
 
+
+/*
+//邻接矩阵表示情况下的建图函数
 int Graph::readNumber(char * str){
     int number = 0;
     while((*str)>='0' && (*str)<='9'){
@@ -148,9 +147,5 @@ void Graph::saveGraph(){
     topo_tmp = str.c_str();
     write_result(topo_tmp, "graph_client.txt");
 }
-
-//计算中央点函数
-int Graph::calculateCenter2(){
-
-}
+*/
 

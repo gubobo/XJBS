@@ -1,6 +1,8 @@
 
 #include "edge.h"
 #include "vertex.h"
+#include <vector>
+using std::vector;
 
 //用于存储消费节点和服务器节点
 struct specialNode{
@@ -15,8 +17,6 @@ struct specialNode{
 
 
 class Graph{
-protected:
-int maxVertices;//最大边数
 
 private:
     int vertexNumber;//节点数目
@@ -25,20 +25,17 @@ private:
     int singleServerCost;//视频内容服务器部署成本
 
 public:
-    E ** Edge;//邻接矩阵
-    V * Vertex;//顶点
-    specialNode * client;//存储client的节点
-    specialNode * server;//存储server的节点
-    int * degree1;//每个节点的度(按照连接的边数来计算)
-    int * degree2;//每个节点的度(按照连接的边上的总带宽来计算)
+    vector <V> Table;//邻阶表
+    vector <specialNode> client;//存储client的节点
+    vector <specialNode> server;//存储server的节点
+    vector <int> degree1;//每个节点的度(按照连接的边数来计算)
+    vector <int> degree2;//每个节点的度(按照连接的边上的总带宽来计算)
 
     int serverNumber;//服务器的总个数
     int center1;//图的中心
     int center2;//图的中央点
-    int ** subGraph;//通过生成树构造的子图
-    
+    vector <V> subTable;//通过生成树构造的子图
     long long deployCost; //部署的总成本
-
 
     ~Graph();
     //每次读取一个数值，并且跳过一个特殊字符，creatGraph的辅助函数

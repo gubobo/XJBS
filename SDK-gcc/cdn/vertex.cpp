@@ -19,8 +19,9 @@ void V::resetServer(){
     isServer = 0;
 }
 
-
-
+void V::addEdge(E edge){
+    Edge.push_back(edge);
+}
 
 
 void V::setCapability(int inCap, int outCap){

@@ -2,6 +2,7 @@
 #define MAX_BANDWIDTH INFINITE
 #define MAX_COST INFINITE
 
+/*
 //有向边
 class E{
 public:
@@ -14,5 +15,18 @@ public:
     void setEdge(int TotalBandwidth, int PerCost);
     //消耗带宽
     bool consumeBandwidth(int bandwidth);
-
 }
+*/
+struct E{
+    int totalBandwith;//总带宽
+    int remainedBandwidth;//剩余带宽
+    int perCost;//带宽单价
+    int dest;//边节点
+
+    E();
+    //设置链路总带宽和带宽单价
+    void setEdge(int TotalBandwidth, int PerCost, int Dest);
+    //消耗带宽
+    bool consumeBandwidth(int bandwidth, int Dest);
+
+};

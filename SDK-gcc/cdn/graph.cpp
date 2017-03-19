@@ -54,7 +54,7 @@ void Graph::creatGraph(char ** topo){
     line += 2;
     p = topo[line];
 
-    //cout<<vertexNumber<<' '<<edgeNumber<<' '<<costVertexNumber<<'\n';
+    cout<<vertexNumber<<' '<<edgeNumber<<' '<<costVertexNumber<<'\n';
     //cout<<'\n';
     //cout<<singleServerCost;
     //cout<<'\n';

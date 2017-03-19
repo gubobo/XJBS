@@ -172,8 +172,8 @@ void Graph::saveGraph(){
                 st.pop();
                 string str_tmp(1,c);
                 str += str_tmp;
-                str += " ";
             }
+            str += " ";
         }else{
            str += "0 "; 
         }

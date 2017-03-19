@@ -17,6 +17,12 @@ void E::setEdge(int TotalBandwidth, int PerCost, int Dest){
 
 
 //消耗带宽，成功返回true,失败返回false
-bool E::consumeBandwidth(int bandwidth, int Dest){
+bool E::consumeBandwidth(int bandwidth){
+    if(bandwidth > remainedBandwidth){
+        return false;
+    }else{
+        remainedBandwidth -= bandwidth;
+        return true; 
+    }
 
 }

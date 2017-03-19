@@ -1,3 +1,5 @@
+#ifndef __GRAPH_H__
+#define __GRAPH_H__
 
 #include "edge.h"
 #include "vertex.h"
@@ -8,13 +10,14 @@ using std::vector;
 struct specialNode{
     int squenceNumber;//节点序列号
     int relevantNumber;//相连节点序列号
+    int reqBandwidth;
 
     specialNode(){
         squenceNumber = -1;
         relevantNumber = -1;
+        reqBandwidth = 0;
     }
 };
-
 
 class Graph{
 
@@ -25,16 +28,16 @@ private:
     int singleServerCost;//视频内容服务器部署成本
 
 public:
-    vector <V> Table;//邻阶表
+    vector <V> Table;//邻阶表,每个元素含有一个自身节点
     vector <specialNode> client;//存储client的节点
     vector <specialNode> server;//存储server的节点
-    vector <int> degree1;//每个节点的度(按照连接的边数来计算)
-    vector <int> degree2;//每个节点的度(按照连接的边上的总带宽来计算)
+    int * degree1;//每个节点的度(按照连接的边数来计算)
+    int * degree2;//每个节点的度(按照连接的边上的总带宽来计算)
 
     int serverNumber;//服务器的总个数
     int center1;//图的中心
     int center2;//图的中央点
-    vector <V> subTable;//通过生成树构造的子图
+    vector <V> subTable;//通过生成树构造的子图,每个元素中含有一个自身的节点
     long long deployCost; //部署的总成本
 
     ~Graph();
@@ -43,7 +46,7 @@ public:
     //计算每个节点的度
     void calculateDegree();
     //构造邻接矩阵,构造定点集合，记录client集合
-    void creatGraph(int size);
+    void creatGraph(char * topo);
     //保存图于txt中，用于python图的可视化
     void saveGraph();
     //计算中心函数
@@ -61,6 +64,7 @@ public:
 
     void MIPP();
 
-    
-
 }
+
+
+#endif

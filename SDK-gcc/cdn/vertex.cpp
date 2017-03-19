@@ -23,6 +23,15 @@ void V::addEdge(E edge){
     Edge.push_back(edge);
 }
 
+E V::findEdge(int Dest){
+    for(vector <E>::iterator it = Edge.begin(); it != Edge.end(); it++){
+        if((*it.dest) == Dest){
+            return *it;
+        }
+    }
+    return E();
+}
+
 
 void V::setCapability(int inCap, int outCap){
     inCapability = inCap;

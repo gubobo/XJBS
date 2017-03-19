@@ -138,18 +138,14 @@ void Graph::saveGraph(){
     //写邻接表
     string str;
     for(int i=0; i<vertexNumber; i++){
-        for(int j=0; j<vertexNumber-1; j++){
+        for(int j=0; j<vertexNumber; j++){
             if(edge_tmp[i][j]>0){
                 str += "1 ";
             }else{
                 str += "0 ";
             }
         }
-        if(edge_tmp[i][vertexNumber-1]>0){
-            str += "1\n";
-        }else{
-            str += "0\n";
-        }
+        str += '\n';
     }
     char *topo_tmp1 = new char [strlen(str.c_str())+1];
     strcpy(topo_tmp1,str.c_str());

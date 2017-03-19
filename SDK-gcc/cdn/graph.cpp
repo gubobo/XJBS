@@ -2,18 +2,21 @@
 #include "lib_io.h"
 
 #include <string>
+#include <cstring>
 #include <stack>
+#include <iostream>
 using std::string;
 using std::stack;
+using std::cout;
 
 Graph::~Graph(){
 }
 
-int Graph::readNumber(char * str){
+int Graph::readNumber(char * & str){
     int number = 0;
     while((*str)>='0' && (*str)<='9'){
         number = number * 10;
-        number = *str - '0';
+        number += *str - '0';
         str++;
     }
     //只跳过一个特殊符号
@@ -32,26 +35,36 @@ void Graph::calculateDegree(){
     }
     for(int i=0; i<vertexNumber; i++){
         degree1[i] = Table[i].Edge.size();
-        for(int j=0; j<Table[i].Edge.size(); j++){
-            degree2[i] += Table[i].Edge[j].totalBandwith;
+        for(int j=0; j<degree1[i]; j++){
+            degree2[i] += Table[i].Edge[j].totalBandwidth;
         }
     }
 }
 
-void Graph::creatGraph(char * topo){
-    char * p = topo;
+void Graph::creatGraph(char ** topo){
+    int line = 0;//指示行号
+    char * p;
+    p = topo[line];
     vertexNumber = readNumber(p);//网络节点数目
-    edgeNumber　＝　readNumber(p);//网络链路数目
+    edgeNumber = readNumber(p);//网络链路数目
     costVertexNumber = readNumber(p);//消费节点数目
-    p++;//跳过一个换行
+    line += 2;
+    p = topo[line];
     singleServerCost = readNumber(p);//视频内容服务器部署成本
-    p++;//跳过一个换行
+    line += 2;
+    p = topo[line];
+
+    //cout<<vertexNumber<<' '<<edgeNumber<<' '<<costVertexNumber<<'\n';
+    //cout<<'\n';
+    //cout<<singleServerCost;
+    //cout<<'\n';
 
     //预先为邻接表开辟空间
     for(int i=0; i<vertexNumber; i++){
         V tmp;
         Table.push_back(tmp);
     }
+
     //构造邻接表
     int vertex1, vertex2, bandwidth, cost;
     for(int i=0; i<edgeNumber; i++){
@@ -59,13 +72,18 @@ void Graph::creatGraph(char * topo){
         vertex2 = readNumber(p);
         bandwidth = readNumber(p);
         cost = readNumber(p);
+        line++;
+        p = topo[line];
+        //cout<<vertex1<<' '<<vertex2<<' '<<bandwidth<<' '<<cost<<'\n';
         E tmp;
         tmp.setEdge(bandwidth, cost, vertex2);
         Table[vertex1].addEdge(tmp);
         tmp.setEdge(bandwidth, cost, vertex1);
         Table[vertex2].addEdge(tmp);
     }
-    p++;//跳过一个换行
+    line++;
+    p = topo[line];
+    //cout<<'\n';
 
     //记录消费节点信息
     int srcNumber, desNumber, reqBandwidth;
@@ -73,10 +91,13 @@ void Graph::creatGraph(char * topo){
         srcNumber = readNumber(p);
         desNumber = readNumber(p);
         reqBandwidth = readNumber(p);
+        line++;
+        p = topo[line];
+        //cout<<srcNumber<<' '<<desNumber<<' '<<reqBandwidth<<'\n';
         //对顶点集合(邻接表)进行修改
         Table[desNumber].setClient(reqBandwidth);
         //对特殊定点集合进行修改
-        specialNode = tmp;
+        specialNode tmp;
         tmp.squenceNumber = srcNumber;
         tmp.relevantNumber = desNumber;
         tmp.reqBandwidth = reqBandwidth;
@@ -105,7 +126,8 @@ void Graph::saveGraph(){
     //构建邻接表
     for(int i=0; i<vertexNumber; i++){
         for(int j=0; j<vertexNumber; j++){
-            for(int k=0; k<Table[i].Edge.size();k++){
+            int SZ = Table[i].Edge.size();
+            for(int k=0; k<SZ;k++){
                 int index = Table[i].Edge[k].dest;
                 edge_tmp[i][index] = 1;
                 edge_tmp[index][i] = 1;
@@ -129,8 +151,10 @@ void Graph::saveGraph(){
             str += "0\n";
         }
     }
-    char *topo_tmp = str.c_str();
-    write_result(topo_tmp, "graph_edge.txt");
+    char *topo_tmp1 = new char [strlen(str.c_str())+1];
+    strcpy(topo_tmp1,str.c_str());
+    write_result(topo_tmp1, "graph_edge.txt");
+    delete [] topo_tmp1;
 
     //消费节点
     str = "";
@@ -154,8 +178,10 @@ void Graph::saveGraph(){
            str += "0 "; 
         }
     }
-    topo_tmp = str.c_str();
-    write_result(topo_tmp, "graph_client.txt");
+    char *topo_tmp2 = new char [strlen(str.c_str())+1];
+    strcpy(topo_tmp2,str.c_str());
+    write_result(topo_tmp2, "graph_client.txt");
+    delete [] topo_tmp2;
 }
 
 

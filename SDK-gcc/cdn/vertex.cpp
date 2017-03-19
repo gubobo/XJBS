@@ -1,7 +1,7 @@
 #include "vertex.h"
 
 V::V(){
-    requireBandwith = 0;
+    requireBandwidth = 0;
     isServer = 0;
     isClient = 0;
 }
@@ -25,7 +25,7 @@ void V::addEdge(E edge){
 
 E V::findEdge(int Dest){
     for(vector <E>::iterator it = Edge.begin(); it != Edge.end(); it++){
-        if((*it.dest) == Dest){
+        if(((*it).dest) == Dest){
             return *it;
         }
     }

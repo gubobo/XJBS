@@ -6,7 +6,7 @@
 #define MAX_COST INFINITE
 
 struct E{
-    int totalBandwith;//总带宽
+    int totalBandwidth;//总带宽
     int remainedBandwidth;//剩余带宽
     int perCost;//带宽单价
     int dest;//边节点

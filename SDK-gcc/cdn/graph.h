@@ -42,11 +42,11 @@ public:
 
     ~Graph();
     //每次读取一个数值，并且跳过一个特殊字符，creatGraph的辅助函数
-    int readNumber(char *str);
+    int readNumber(char * & str);
     //计算每个节点的度
     void calculateDegree();
     //构造邻接矩阵,构造定点集合，记录client集合
-    void creatGraph(char * topo);
+    void creatGraph(char ** topo);
     //保存图于txt中，用于python图的可视化
     void saveGraph();
     //计算中心函数
@@ -64,7 +64,7 @@ public:
 
     void MIPP();
 
-}
+};
 
 
 #endif

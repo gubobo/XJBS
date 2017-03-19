@@ -66,7 +66,7 @@ void Graph::creatGraph(char *　topo){
     client = new specialNode [vertexNumber];
     server = new specialNode [vertexNumber];
 
-    //构造邻接矩阵，计算度大小
+    //构造邻接矩阵
     int vertex1, vertex2, bandwidth, cost;
     for(int i=0; i<edgeNumber; i++){
         vertex1 = readNumber(p);
@@ -75,8 +75,6 @@ void Graph::creatGraph(char *　topo){
         cost = readNumber(p);
         Edge[vertex1][vertex2].setEdge(bandwidth, cost);
         Edge[vertex2][vertex1].setEdge(bandwidth, cost); 
-        degree[vertex1]++;
-        degree[vertex2]++;
     }
     p++;//跳过一个换行
 
@@ -151,5 +149,8 @@ void Graph::saveGraph(){
     write_result(topo_tmp, "graph_client.txt");
 }
 
+//计算中央点函数
+int Graph::calculateCenter2(){
 
+}
 

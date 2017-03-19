@@ -152,7 +152,21 @@ void Graph::saveGraph(){
     write_result(topo_tmp1, "graph_edge.txt");
     delete [] topo_tmp1;
 
-    //消费节点
+    //消费节点 
+    
+    str = "";
+    for(int i=0; i<vertexNumber;i++){
+        str += "0 ";
+    }
+    for(int i=0; i<costVertexNumber; i++){
+        int num_tmp = client[i].relevantNumber;
+        str.replace(2*num_tmp,1,"1");
+    }
+    char *topo_tmp2 = new char [strlen(str.c_str())+1];
+    strcpy(topo_tmp2,str.c_str());
+    write_result(topo_tmp2, "graph_client1.txt");
+
+
     str = "";
     for(int i=0; i<costVertexNumber; i++){
         int num_tmp = client[i].relevantNumber;
@@ -174,9 +188,9 @@ void Graph::saveGraph(){
            str += "0 "; 
         }
     }
-    char *topo_tmp2 = new char [strlen(str.c_str())+1];
-    strcpy(topo_tmp2,str.c_str());
-    write_result(topo_tmp2, "graph_client.txt");
+    char *topo_tmp3 = new char [strlen(str.c_str())+1];
+    strcpy(topo_tmp3,str.c_str());
+    write_result(topo_tmp3, "graph_client2.txt");
     delete [] topo_tmp2;
 }
 

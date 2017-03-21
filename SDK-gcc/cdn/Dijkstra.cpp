@@ -15,17 +15,7 @@ Dijkstra::Dijkstra(int number)
     _usedVertex = vector<int>(number, 0); //点都没用过
 }
 
-vector<int> Dijkstra::GetCost()
-{
-    return _path.leastCost;
-}
-
-Path Dijkstra::GetPath()
-{
-    return _path;
-}
-
-void Dijkstra::SearchPath(vector<V> &table, int &start)
+Path Dijkstra::SearchPath(vector<V> &table, int &start)
 {
     int present = start;
     int tmpNext;
@@ -47,12 +37,36 @@ void Dijkstra::SearchPath(vector<V> &table, int &start)
                 _path.previous[j] = present;
             }
         }
-        present = FindNext();
+        present = _FindNext();
         if (present != noVertex) isDone = 1;
     }
+
+    return _path;
 }
 
-int Dijkstra::FindNext()
+vector<Path> Dijkstra::ServerPath(Graph graph)
+{
+    int i;
+    vector<Path> pathTable(graph.server.size());
+    for (i = 0; i < graph.server.size(); ++i)
+    {
+        pathTable[i] = SearchPath(graph.Table, graph.server[i].sequenceNumber);
+    }
+    return pathTable;
+}
+
+vector<Path> Dijkstra::ClientPath(Graph graph)
+{
+    int i;
+    vector<Path> pathTable(graph.client.size());
+    for (i = 0; i < graph.client.size(); ++i)
+    {
+        pathTable[i] = SearchPath(graph.Table, graph.client[i].sequenceNumber);
+    }
+    return pathTable;
+}
+
+int Dijkstra::_FindNext()
 {
     int i = 0, j = noVertex;
     int tmp = MAXCOST;

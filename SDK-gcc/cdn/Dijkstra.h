@@ -10,11 +10,12 @@
 
 #include <list>
 #include <vector>
-#include "vertex.h"
+#include "graph.h"
 
 using std::list;
 using std::vector;
 
+// 记录一下用dijkstra算法寻找到的最佳路径
 struct Path
 {
     int start;
@@ -22,6 +23,7 @@ struct Path
     vector<int> previous;
 };
 
+// 最短路径算法
 class Dijkstra
 {
 private:
@@ -30,18 +32,24 @@ private:
 
 private:
     int _vertexNumber;
+
     Path _path;
-    
     vector<int> _usedVertex;
 
 private:
-    int FindNext();
+    int _FindNext();
 
 public:
     Dijkstra(int number);
-    void SearchPath(vector<V> &table, int &start);
-    vector<int> GetCost();
-    Path GetPath();
+
+    // 寻找单源最短路
+    Path SearchPath(vector<V> &table, int &start);
+
+    // 寻找从所有服务器节点出发的最短路径
+    vector<Path> ServerPath(Graph graph);
+
+    // 寻找从所有消费节点出发的最短路径
+    vector<Path> ClientPath(Graph graph);
 };
 
 #endif //__DIJKSTRA_H__

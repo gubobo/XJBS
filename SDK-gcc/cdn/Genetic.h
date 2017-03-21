@@ -39,7 +39,7 @@ private:
 
 private:
     Gene _best;// 记录当前的最优解
-    vector<vector<int>> _gene; //所有基因序列
+    vector<Gene> _gene; //所有基因序列
 
 private:
     double _Gamble(); //轮盘赌

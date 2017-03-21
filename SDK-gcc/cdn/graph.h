@@ -8,7 +8,7 @@ using std::vector;
 
 //用于存储消费节点和服务器节点
 struct specialNode{
-    int squenceNumber;//节点序列号
+    int sequenceNumber;//节点序列号
     int relevantNumber;//相连节点序列号
     int reqBandwidth;
 

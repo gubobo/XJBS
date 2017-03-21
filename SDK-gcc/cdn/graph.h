@@ -13,7 +13,7 @@ struct specialNode{
     int reqBandwidth;
 
     specialNode(){
-        squenceNumber = -1;
+        sequenceNumber = -1;
         relevantNumber = -1;
         reqBandwidth = 0;
     }

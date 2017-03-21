@@ -98,7 +98,7 @@ void Graph::creatGraph(char ** topo){
         Table[desNumber].setClient(reqBandwidth);
         //对特殊定点集合进行修改
         specialNode tmp;
-        tmp.squenceNumber = srcNumber;
+        tmp.sequenceNumber = srcNumber;
         tmp.relevantNumber = desNumber;
         tmp.reqBandwidth = reqBandwidth;
         client.push_back(tmp);
@@ -258,7 +258,7 @@ void Graph::creatGraph(char *　topo){
         reqBandwidth = readNumber(p);
         Vertex[i].setClient(reqBandwidth);//顶点集设置
         
-        client.squenceNumber = srcNumber;
+        client.sequenceNumber = srcNumber;
         client.relevantNumber = desNumber;
     }
     //计算节点的度

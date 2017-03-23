@@ -21,7 +21,7 @@ struct specialNode{
 
 class Graph{
 
-private:
+public:
     int vertexNumber;//节点数目
     int edgeNumber;//链路数目
     int costVertexNumber;//消费节点数目

@@ -32,6 +32,7 @@ private:
 
 private:
     int _vertexNumber;
+    Graph _graph;
 
     Path _path;
     vector<int> _usedVertex;
@@ -40,16 +41,16 @@ private:
     int _FindNext();
 
 public:
-    Dijkstra(int number);
+    Dijkstra(Graph graph);
 
     // 寻找单源最短路
-    Path SearchPath(vector<V> &table, int &start);
+    Path SearchPath(int &start);
 
     // 寻找从所有服务器节点出发的最短路径
-    vector<Path> ServerPath(Graph graph);
+    vector<Path> ServerPath();
 
     // 寻找从所有消费节点出发的最短路径
-    vector<Path> ClientPath(Graph graph);
+    vector<Path> ClientPath();
 };
 
 #endif //__DIJKSTRA_H__

@@ -7,15 +7,16 @@
 
 #include "Dijkstra.h"
 
-Dijkstra::Dijkstra(int number)
+Dijkstra::Dijkstra(Graph graph)
 {
-    _vertexNumber = number;
-    _path.leastCost = vector<int>(number, MAXCOST); //默认花费无限大
-    _path.previous = vector<int>(number, noVertex); //前驱未知
-    _usedVertex = vector<int>(number, 0); //点都没用过
+    _graph = graph;
+    _vertexNumber = graph.vertexNumber;
+    _path.leastCost = vector<int>(_vertexNumber, MAXCOST); //默认花费无限大
+    _path.previous = vector<int>(_vertexNumber, noVertex); //前驱未知
+    _usedVertex = vector<int>(_vertexNumber, 0); //点都没用过
 }
 
-Path Dijkstra::SearchPath(vector<V> &table, int &start)
+Path Dijkstra::SearchPath(int &start)
 {
     int present = start;
     int tmpNext;
@@ -28,12 +29,12 @@ Path Dijkstra::SearchPath(vector<V> &table, int &start)
 
     while(!isDone)
     {
-        for (j = 0; j < table[present].Edge.size(); ++j) 
+        for (j = 0; j < _graph.Table[present].Edge.size(); ++j) 
         {
-            tmpNext = table[present].Edge[j].dest;
-            if (table[present].Edge[j].perCost + _path.leastCost[present] < _path.leastCost[j])
+            tmpNext = _graph.Table[present].Edge[j].dest;
+            if (_graph.Table[present].Edge[j].perCost + _path.leastCost[present] < _path.leastCost[j])
             {
-                _path.leastCost[j] = table[present].Edge[j].perCost + _path.leastCost[present];
+                _path.leastCost[j] = _graph.Table[present].Edge[j].perCost + _path.leastCost[present];
                 _path.previous[j] = present;
             }
         }
@@ -44,24 +45,24 @@ Path Dijkstra::SearchPath(vector<V> &table, int &start)
     return _path;
 }
 
-vector<Path> Dijkstra::ServerPath(Graph graph)
+vector<Path> Dijkstra::ServerPath()
 {
     int i;
-    vector<Path> pathTable(graph.server.size());
-    for (i = 0; i < graph.server.size(); ++i)
+    vector<Path> pathTable(_graph.server.size());
+    for (i = 0; i < _graph.server.size(); ++i)
     {
-        pathTable[i] = SearchPath(graph.Table, graph.server[i].sequenceNumber);
+        pathTable[i] = SearchPath(_graph.server[i].sequenceNumber);
     }
     return pathTable;
 }
 
-vector<Path> Dijkstra::ClientPath(Graph graph)
+vector<Path> Dijkstra::ClientPath()
 {
     int i;
-    vector<Path> pathTable(graph.client.size());
-    for (i = 0; i < graph.client.size(); ++i)
+    vector<Path> pathTable(_graph.client.size());
+    for (i = 0; i < _graph.client.size(); ++i)
     {
-        pathTable[i] = SearchPath(graph.Table, graph.client[i].sequenceNumber);
+        pathTable[i] = SearchPath(_graph.client[i].sequenceNumber);
     }
     return pathTable;
 }

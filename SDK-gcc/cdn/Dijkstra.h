@@ -16,17 +16,32 @@ using std::list;
 using std::vector;
 
 // 记录一下用dijkstra算法寻找到的最佳路径
-struct Path
+class Path
 {
+public:
     int start;
     vector<int> leastCost;
     vector<int> previous;
 };
 
+// 传输给最大流运算
+class Pair
+{
+public:
+    int server;
+    int client;
+    int cost;
+    vector<int> previous;
+    bool operator < (const Pair &c) const
+    {
+        return cost < c.cost;
+    }
+};
+
 // 最短路径算法
 class Dijkstra
 {
-private:
+public:
     static const int MAXCOST = 1000000; //线路不存在
     static const int noVertex = -1; //点不存在
 
@@ -47,7 +62,7 @@ public:
     Path SearchPath(int &start);
 
     // 寻找从所有服务器节点出发的最短路径
-    vector<Path> ServerPath();
+    vector<Pair> ServerPath();
 
     // 寻找从所有消费节点出发的最短路径
     vector<Path> ClientPath();

@@ -7,15 +7,16 @@
 
 #include <cmath>
 #include <cstdlib>
+#include <algorithm>
 #include "Dijkstra.h"
 #include "Genetic.h"
 
 Genetic::Genetic(Graph rawGraph, vector<vector<int>> initServer)
 {
-    
+    _graph = rawGraph;
 }
 
-Result Genetic::Optimize()
+Solution Genetic::Optimize()
 {
     bool isBetter = 1;
     int count = 0;
@@ -36,4 +37,28 @@ Result Genetic::Optimize()
         if (count == MAXITERATOR)
             isBetter = 0;
     }
+}
+
+void Genetic::_select()
+{
+    int i;
+    vector<Solution> allResult;
+    CostFlow n;
+
+    for (i = 0; i < _totalNumber; ++i)
+    {
+        allResult[i] = n.FindPath(_graph);
+    }
+
+    std::sort(allResult.begin(), allResult.end());
+}
+
+void Genetic::_CrossCover()
+{
+    
+}
+
+void Genetic::_Variation()
+{
+    
 }

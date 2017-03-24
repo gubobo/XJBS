@@ -10,16 +10,7 @@
 
 #include <vector>
 #include "graph.h"
-
-class Result
-{
-public:
-    int routeNum;
-    vector<int> server;
-    vector<list<int>> route; 
-public:
-    Result();
-};
+#include "CostFlow.h"
 
 // 个体
 class Gene
@@ -35,11 +26,13 @@ private:
     int _deleteNumber;// 每次迭代别删除的数量
     int _crossNumber;// 一次交叉参与数
     vector<double> _veriationProbability// 变异概率
-    static const int MAXITERATOR = 1000;// 多少次最优解不变则停止迭代
+    static const int MAXITERATOR = 100;// 多少次最优解不变则停止迭代
 
 private:
     Gene _best;// 记录当前的最优解
     vector<Gene> _gene; //所有基因序列
+
+    Graph _graph;
 
 private:
     double _Gamble(); //轮盘赌
@@ -49,7 +42,7 @@ private:
 
 public:
     Genetic(Graph rawGraph, vector<vector<int>> initServer);
-    Result Optimize();
+    Solution Optimize();
 };
 
 #endif

@@ -19,6 +19,7 @@ Dijkstra::Dijkstra(Graph graph)
 Path Dijkstra::SearchPath(int &start)
 {
     int present = start;
+    _path.start = start;
     int tmpNext;
     int j;
 
@@ -45,15 +46,25 @@ Path Dijkstra::SearchPath(int &start)
     return _path;
 }
 
-vector<Path> Dijkstra::ServerPath()
+vector<Pair> Dijkstra::ServerPath()
 {
-    int i;
+    int i, j, k = 0;
     vector<Path> pathTable(_graph.server.size());
+    vector<Pair> costPair(_graph.server.size() * _graph.client.size());
+
     for (i = 0; i < _graph.server.size(); ++i)
     {
         pathTable[i] = SearchPath(_graph.server[i].sequenceNumber);
+        for (j = 0; j < _graph.client.size(); ++j)
+        {
+            costPair[k].server = pathTable[i].start;;
+            costPair[k].client = _graph.client[j].sequenceNumber;
+            costPair[k].cost = pathTable[i].leastCost[_graph.client[j].sequenceNumber];
+            costPair[k].previous = pathTable[i].previous;
+            ++k;
+        }
     }
-    return pathTable;
+    return costPair;
 }
 
 vector<Path> Dijkstra::ClientPath()

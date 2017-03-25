@@ -13,12 +13,12 @@ public:
     int relevantNumber;// 相连节点序列号
 
     int reqBandwidth; // 需求 客户使用
-    int outBandwidth;// 流出当前节点的最大流量 服务器使用
+    int outBandwidth;// 流出当前节点的流量 服务器使用
 
-    specialNode(){
+    specialNode(int num = -1, int band = 0){
         sequenceNumber = -1;
-        relevantNumber = -1;
-        reqBandwidth = 0;
+        relevantNumber = num;
+        reqBandwidth = band;
     }
 
     bool operator == (const specialNode &t) const

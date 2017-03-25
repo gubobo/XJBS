@@ -23,11 +23,20 @@ public:
     int totalCost; // 总花费
     int pathNumber; // 总线路数目
     list<list<int>> path; //所有路径
-    list<specialNode> serverFlow; // 每个服务器提供的流量
+    list<specialNode> server; // 服务器
 
     bool operator < (const Solution &s) const
     {
-        return totalCost < s.totalCost;
+        if (isWork && !s.isWork)
+            return 0;
+        else if (!isWork && s.isWork)
+            return 1;
+        else 
+            return totalCost < s.totalCost;
+    }
+    bool operator == (const Solution &s) const
+    {
+        return totalCost == s.totalCost;
     }
 };
 

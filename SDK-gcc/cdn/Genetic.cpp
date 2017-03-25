@@ -11,7 +11,7 @@
 #include "Dijkstra.h"
 #include "Genetic.h"
 
-Genetic::Genetic(Graph rawGraph, vector<vector<int>> initServer)
+Genetic::Genetic(Graph rawGraph, vector<list<specialNode>> initServer)
 {
     srand(unsigned(time(NULL)));
 
@@ -53,17 +53,21 @@ Solution Genetic::Optimize()
 void Genetic::_Select()
 {
     int i;
-    vector<Solution> allResult;
     CostFlow n;
 
     for (i = 0; i < _totalNumber; ++i)
     {
-        allResult[i] = n.FindPath(_graph);
+        _graph.server = _gene[i].server;
+        _gene[i] = n.FindPath(_graph);
     }
 
-    std::sort(allResult.begin(), allResult.end());
-    if (allResult[0].totalCost < _best.totalCost)
-        _best = allResult[0];
+    std::sort(_gene.begin(), _gene.end());
+    if (_gene[0].totalCost < _best.totalCost)
+        _best = _gene[0];
+
+    for (i = _totalNumber - _deleteNumber; i < _totalNumber; ++i)
+        _gene[i].server.clear();
+
 }
 
 void Genetic::_CrossCover()
@@ -73,7 +77,7 @@ void Genetic::_CrossCover()
     // 取前三分之二交配 得到的子代覆盖后三分之二
     for (i = 0; i < _totalNumber * 2 /3 ; i += 2)
     {
-        _gene[_totalNumber - _deleteNumber + i] = _merge(i);
+        _merge(i);
     }
 }
 
@@ -112,7 +116,24 @@ specialNode Genetic::_getNewVertex(int i)
     return specialNode(tmpVertex);
 }
 
-Gene Genetic::_merge(int i)
+void Genetic::_merge(int i)
 {
+    int gene1 = i;
+    int gene2 = i + 1;    
+
+    _gene[gene1].server.sort();
+    _gene[gene2].server.sort();
+
+    list<specialNode>::iterator iter1, iter2;
+    iter1 = _gene[gene1].server.begin();
+    iter2 = _gene[gene2].server.begin();
     
+    int getNumber = 10; //这个要改
+    while(getNumber--)
+    {
+        if ((*iter1).outBandwidth > (*iter2).outBandwidth)
+            _gene[i + _totalNumber - _deleteNumber].server.push_back(specialNode((*iter1).relevantNumber));
+        else
+            _gene[i + _totalNumber - _deleteNumber].server.push_back(specialNode((*iter2).relevantNumber));
+    }
 }

@@ -25,6 +25,10 @@ public:
     {
         return relevantNumber == t.relevantNumber;
     }
+    bool operator < (const specialNode &t) const
+    {
+        return outBandwidth < t.outBandwidth;
+    }
 };
 
 class Graph{

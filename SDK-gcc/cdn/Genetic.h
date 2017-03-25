@@ -12,17 +12,6 @@
 #include "graph.h"
 #include "CostFlow.h"
 
-// 个体
-class Gene
-{
-public:
-    list<specialNode> server;
-    bool operator == (const Gene &g) const
-    {
-        return server == g.server;
-    }
-};
-
 class Genetic
 {
 private:
@@ -33,7 +22,7 @@ private:
 
 private:
     Solution _best;// 记录当前的最优解
-    vector<Gene> _gene; //所有基因序列
+    vector<Solution> _gene; //所有基因序列
 
     Graph _graph;
 
@@ -43,11 +32,11 @@ private:
     void _Variation(); //变异
 
     double _randReal(); //生成随机小数
-    Gene _merge(int i); //归并排序
+    void _merge(int i); //归并排序
     specialNode _getNewVertex(int i); // 获取一个新的服务器点
 
 public:
-    Genetic(Graph rawGraph, vector<vector<int>> initServer);
+    Genetic(Graph rawGraph, vector<list<specialNode>> initServer);
     Solution Optimize();
 };
 

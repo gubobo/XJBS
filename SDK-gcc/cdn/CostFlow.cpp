@@ -19,7 +19,7 @@ Solution CostFlow::FindPath(Graph graph)
 {
     // 初始化
     _graph = graph;
-    _result.serverFlow = _graph.server;
+    _result.server = _graph.server;
     _result.totalCost = _graph.server.size() * _graph.singleServerCost;
 
     int i, j;
@@ -105,7 +105,7 @@ void CostFlow::DelMiniFlow()
     
     // 服务器提供的流量
     list<specialNode>::iterator i; 
-    for (i = _result.serverFlow.begin(); i != _result.serverFlow.end(); ++i)
+    for (i = _result.server.begin(); i != _result.server.end(); ++i)
     {
         if ((*i).relevantNumber == _costPair[0].server.relevantNumber)
             (*i).outBandwidth += miniFlow;

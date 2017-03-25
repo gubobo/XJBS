@@ -22,9 +22,8 @@ public:
     bool isWork; //是否可行
     int totalCost; // 总花费
     int pathNumber; // 总线路数目
-    vector<list<int>> path; //所有路径
-    vector<int> server; // 服务器设置
-    vector<int> serverFlow; // 每个服务器提供的流量
+    list<list<int>> path; //所有路径
+    list<specialNode> serverFlow; // 每个服务器提供的流量
 
     bool operator < (const Solution &s) const
     {

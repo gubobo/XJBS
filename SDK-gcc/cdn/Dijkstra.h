@@ -28,8 +28,8 @@ public:
 class Pair
 {
 public:
-    int server;
-    int client;
+    specialNode server;
+    specialNode client;
     int cost;
     vector<int> previous;
     bool operator < (const Pair &c) const

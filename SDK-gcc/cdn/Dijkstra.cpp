@@ -21,7 +21,7 @@ Path Dijkstra::SearchPath(int &start)
     int present = start;
     _path.start = start;
     int tmpNext;
-    int j;
+    list<int>::iterator i;
 
     bool isDone = 0;
 
@@ -30,13 +30,13 @@ Path Dijkstra::SearchPath(int &start)
 
     while(!isDone)
     {
-        for (j = 0; j < _graph.Table[present].Edge.size(); ++j) 
+        for (i = _graph.Table[present].nextVertex.begin() ; i != _graph.Table[present].nextVertex.end(); ++i) 
         {
-            tmpNext = _graph.Table[present].Edge[j].dest;
-            if (_graph.Table[present].Edge[j].perCost + _path.leastCost[present] < _path.leastCost[j])
+            tmpNext = *i;
+            if (_graph.edge[present][*i].perCost + _path.leastCost[present] < _path.leastCost[*i])
             {
-                _path.leastCost[j] = _graph.Table[present].Edge[j].perCost + _path.leastCost[present];
-                _path.previous[j] = present;
+                _path.leastCost[*i] = _graph.edge[present][*i].perCost + _path.leastCost[present];
+                _path.previous[*i] = present;
             }
         }
         present = _FindNext();
@@ -48,19 +48,20 @@ Path Dijkstra::SearchPath(int &start)
 
 vector<Pair> Dijkstra::ServerPath()
 {
-    int i, j, k = 0;
-    vector<Path> pathTable(_graph.server.size());
+    list<specialNode>::iterator i, j;
+    int k = 0;
+    Path onePath;
     vector<Pair> costPair(_graph.server.size() * _graph.client.size());
 
-    for (i = 0; i < _graph.server.size(); ++i)
+    for (i = _graph.server.begin(); i != _graph.server.end(); ++i)
     {
-        pathTable[i] = SearchPath(_graph.server[i].sequenceNumber);
-        for (j = 0; j < _graph.client.size(); ++j)
+        onePath = SearchPath((*i).relevantNumber);
+        for (j = _graph.client.begin(); j != _graph.client.end(); ++j)
         {
-            costPair[k].server = pathTable[i].start;;
-            costPair[k].client = _graph.client[j].sequenceNumber;
-            costPair[k].cost = pathTable[i].leastCost[_graph.client[j].sequenceNumber];
-            costPair[k].previous = pathTable[i].previous;
+            costPair[k].server.relevantNumber = onePath.start;;
+            costPair[k].client.relevantNumber = (*j).relevantNumber;
+            costPair[k].cost = onePath.leastCost[(*j).relevantNumber];
+            costPair[k].previous = onePath.previous;
             ++k;
         }
     }
@@ -69,11 +70,12 @@ vector<Pair> Dijkstra::ServerPath()
 
 vector<Path> Dijkstra::ClientPath()
 {
-    int i;
+    list<specialNode>::iterator i;
+    int j = 0;
     vector<Path> pathTable(_graph.client.size());
-    for (i = 0; i < _graph.client.size(); ++i)
+    for (i = _graph.client.begin(); i != _graph.client.end(); ++i)
     {
-        pathTable[i] = SearchPath(_graph.client[i].sequenceNumber);
+        pathTable[j++] = SearchPath((*i).relevantNumber);
     }
     return pathTable;
 }

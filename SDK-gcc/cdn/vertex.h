@@ -4,7 +4,9 @@
 
 #include "edge.h"
 #include <vector> 
+#include <list>
 using std::vector;
+using std::list;
 
 struct V{
     int requireBandwidth;//需求的总流量
@@ -13,7 +15,7 @@ struct V{
     int inCapability;//流入当前节点的最大流量
     int outCapability;//流出当前节点的最大流量
 
-    vector <E> Edge;//存放该节点的邻接表
+    list<int> nextVertex;//存放该节点的邻接表
 
     V();
     //设置消费节点相关参数

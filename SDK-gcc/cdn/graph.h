@@ -8,9 +8,11 @@ using std::vector;
 
 //用于存储消费节点和服务器节点
 struct specialNode{
-    int sequenceNumber;//节点序列号
-    int relevantNumber;//相连节点序列号
-    int reqBandwidth;
+    int sequenceNumber;// 节点序列号
+    int relevantNumber;// 相连节点序列号
+
+    int reqBandwidth; // 需求 客户使用
+    int outBandwidth;// 流出当前节点的最大流量 服务器使用
 
     specialNode(){
         sequenceNumber = -1;
@@ -26,11 +28,12 @@ public:
     int edgeNumber;//链路数目
     int costVertexNumber;//消费节点数目
     int singleServerCost;//视频内容服务器部署成本
+    vector<vector<E>> edge;
 
 public:
     vector <V> Table;//邻阶表,每个元素含有一个自身节点
-    vector <specialNode> client;//存储client的节点
-    vector <specialNode> server;//存储server的节点
+    list <specialNode> client;//存储client的节点
+    list <specialNode> server;//存储server的节点
     int * degree1;//每个节点的度(按照连接的边数来计算)
     int * degree2;//每个节点的度(按照连接的边上的总带宽来计算)
 

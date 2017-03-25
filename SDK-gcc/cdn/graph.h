@@ -7,7 +7,8 @@
 using std::vector;
 
 //用于存储消费节点和服务器节点
-struct specialNode{
+class specialNode{
+public:
     int sequenceNumber;// 节点序列号
     int relevantNumber;// 相连节点序列号
 
@@ -18,6 +19,11 @@ struct specialNode{
         sequenceNumber = -1;
         relevantNumber = -1;
         reqBandwidth = 0;
+    }
+
+    bool operator == (const specialNode &t) const
+    {
+        return relevantNumber == t.relevantNumber;
     }
 };
 

@@ -75,12 +75,13 @@ void CostFlow::DelMiniFlow()
     // 这条路径上需要删除掉的带宽值
     // 反过来就是删除带宽最小值
     if (_costPair[0].client.reqBandwidth == miniFlow)
-    {
-        list<specialNode>::iterator i;
-        for (i = _graph.client.begin(); i != _graph.client.end(); ++i)
-            if ((*i).relevantNumber == _costPair[0].client.relevantNumber)
-                _graph.client.erase(i);
-    }
+//    {
+//        list<specialNode>::iterator i;
+//        for (i = _graph.client.begin(); i != _graph.client.end(); ++i)
+//            if ((*i).relevantNumber == _costPair[0].client.relevantNumber)
+//                _graph.client.erase(i);
+//    }
+        _graph.client.remove(_costPair[0].client);
     else
         _costPair[0].client.reqBandwidth -= miniFlow;
 

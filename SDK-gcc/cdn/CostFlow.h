@@ -10,8 +10,10 @@
 
 #include <vector>
 #include <list>
+#include <stdio.h>
+#include <cstring>
 #include "graph.h"
-#include "Dijkstra.h"
+
 
 using std::vector;
 using std::list;

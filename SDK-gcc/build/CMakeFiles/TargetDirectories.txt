@@ -1,1 +1,1 @@
-/home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles/cdn.dir
+/home/lc/XJBS/SDK-gcc/build/CMakeFiles/cdn.dir

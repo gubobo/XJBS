@@ -22,15 +22,15 @@ Solution CostFlow::FindPath(Graph graph)
     _result.server = _graph.server;
     _result.totalCost = _graph.server.size() * _graph.singleServerCost;
 
-    int i, j;
+    //int i, j;
     bool isEnd = 0;
 
-    Dijkstra n(_graph);
+    //Dijkstra n(_graph);
 
     while (!isEnd)
     {
         // 寻找所有最短路径对
-        _costPair = n.ServerPath();
+        _costPair = _graph.serverPath();
 
         // 给路径对通过单位流量花费排序
         std::sort(_costPair.begin(), _costPair.end());
@@ -75,12 +75,12 @@ void CostFlow::DelMiniFlow()
     // 这条路径上需要删除掉的带宽值
     // 反过来就是删除带宽最小值
     if (_costPair[0].client.reqBandwidth == miniFlow)
-//    {
-//        list<specialNode>::iterator i;
-//        for (i = _graph.client.begin(); i != _graph.client.end(); ++i)
-//            if ((*i).relevantNumber == _costPair[0].client.relevantNumber)
-//                _graph.client.erase(i);
-//    }
+    //{
+    //    list<specialNode>::iterator i;
+    //    for (i = _graph.client.begin(); i != _graph.client.end(); ++i)
+    //        if ((*i).relevantNumber == _costPair[0].client.relevantNumber)
+    //            _graph.client.erase(i);
+    //}
         _graph.client.remove(_costPair[0].client);
     else
         _costPair[0].client.reqBandwidth -= miniFlow;
@@ -96,7 +96,8 @@ void CostFlow::DelMiniFlow()
         else 
         {
             _graph.Table[presentVertex].nextVertex.remove(previousVertex);
-            _graph.Table[previousVertex].nextVertex.remove(presentVertex);
+            //单向删除
+            //_graph.Table[previousVertex].nextVertex.remove(presentVertex);
         }
     }
     

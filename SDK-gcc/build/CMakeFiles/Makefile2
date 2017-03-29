@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lc/Downloads/codecraft2017/SDK-gcc/cdn
+CMAKE_SOURCE_DIR = /home/lc/XJBS/SDK-gcc/cdn
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lc/Downloads/codecraft2017/SDK-gcc/build
+CMAKE_BINARY_DIR = /home/lc/XJBS/SDK-gcc/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/cdn.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/lc/Downloads/codecraft2017/SDK-gcc/build
 CMakeFiles/cdn.dir/all:
 	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/depend
 	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles  1 2 3 4 5 6
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/XJBS/SDK-gcc/build/CMakeFiles  1 2 3 4 5 6 7 8
 	@echo "Built target cdn"
 .PHONY : CMakeFiles/cdn.dir/all
 
@@ -69,9 +69,9 @@ all: CMakeFiles/cdn.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cdn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lc/XJBS/SDK-gcc/build/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/cdn.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lc/XJBS/SDK-gcc/build/CMakeFiles 0
 .PHONY : CMakeFiles/cdn.dir/rule
 
 # Convenience name for target.

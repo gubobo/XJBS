@@ -1,9 +1,14 @@
 #include "deploy.h"
 #include "graph.h"
+#include "CostFlow.h"
+#include "Genetic.h"
 #include <stdio.h>
 #include <iostream>
 
 using std::cout;
+
+//寻找最小费用流的节点数和初始节点位置
+
 
 //You need to complete the function 
 void deploy_server(char * topo[MAX_EDGE_NUM], int line_num,char * filename)
@@ -12,6 +17,7 @@ void deploy_server(char * topo[MAX_EDGE_NUM], int line_num,char * filename)
     Graph G;
     G.creatGraph(topo);
     G.saveGraph();
+
 
     cout<<'\n';
     cout<<topo[1][MAX_EDGE_NUM-1];

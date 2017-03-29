@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lc/Downloads/codecraft2017/SDK-gcc/cdn
+CMAKE_SOURCE_DIR = /home/lc/XJBS/SDK-gcc/cdn
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lc/Downloads/codecraft2017/SDK-gcc/build
+CMAKE_BINARY_DIR = /home/lc/XJBS/SDK-gcc/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lc/XJBS/SDK-gcc/build/CMakeFiles /home/lc/XJBS/SDK-gcc/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lc/XJBS/SDK-gcc/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -110,6 +110,54 @@ cdn: cmake_check_build_system
 cdn/fast:
 	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/build
 .PHONY : cdn/fast
+
+CostFlow.o: CostFlow.cpp.o
+.PHONY : CostFlow.o
+
+# target to build an object file
+CostFlow.cpp.o:
+	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/CostFlow.cpp.o
+.PHONY : CostFlow.cpp.o
+
+CostFlow.i: CostFlow.cpp.i
+.PHONY : CostFlow.i
+
+# target to preprocess a source file
+CostFlow.cpp.i:
+	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/CostFlow.cpp.i
+.PHONY : CostFlow.cpp.i
+
+CostFlow.s: CostFlow.cpp.s
+.PHONY : CostFlow.s
+
+# target to generate assembly for a file
+CostFlow.cpp.s:
+	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/CostFlow.cpp.s
+.PHONY : CostFlow.cpp.s
+
+Genetic.o: Genetic.cpp.o
+.PHONY : Genetic.o
+
+# target to build an object file
+Genetic.cpp.o:
+	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/Genetic.cpp.o
+.PHONY : Genetic.cpp.o
+
+Genetic.i: Genetic.cpp.i
+.PHONY : Genetic.i
+
+# target to preprocess a source file
+Genetic.cpp.i:
+	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/Genetic.cpp.i
+.PHONY : Genetic.cpp.i
+
+Genetic.s: Genetic.cpp.s
+.PHONY : Genetic.s
+
+# target to generate assembly for a file
+Genetic.cpp.s:
+	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/Genetic.cpp.s
+.PHONY : Genetic.cpp.s
 
 cdn.o: cdn.cpp.o
 .PHONY : cdn.o
@@ -264,6 +312,12 @@ help:
 	@echo "... cdn"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... CostFlow.o"
+	@echo "... CostFlow.i"
+	@echo "... CostFlow.s"
+	@echo "... Genetic.o"
+	@echo "... Genetic.i"
+	@echo "... Genetic.s"
 	@echo "... cdn.o"
 	@echo "... cdn.i"
 	@echo "... cdn.s"

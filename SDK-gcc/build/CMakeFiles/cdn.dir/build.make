@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lc/Downloads/codecraft2017/SDK-gcc/cdn
+CMAKE_SOURCE_DIR = /home/lc/XJBS/SDK-gcc/cdn
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lc/Downloads/codecraft2017/SDK-gcc/build
+CMAKE_BINARY_DIR = /home/lc/XJBS/SDK-gcc/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cdn.dir/depend.make
@@ -50,18 +50,18 @@ include CMakeFiles/cdn.dir/progress.make
 include CMakeFiles/cdn.dir/flags.make
 
 CMakeFiles/cdn.dir/vertex.cpp.o: CMakeFiles/cdn.dir/flags.make
-CMakeFiles/cdn.dir/vertex.cpp.o: /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/vertex.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/cdn.dir/vertex.cpp.o: /home/lc/XJBS/SDK-gcc/cdn/vertex.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/XJBS/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cdn.dir/vertex.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/vertex.cpp.o -c /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/vertex.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/vertex.cpp.o -c /home/lc/XJBS/SDK-gcc/cdn/vertex.cpp
 
 CMakeFiles/cdn.dir/vertex.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cdn.dir/vertex.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/vertex.cpp > CMakeFiles/cdn.dir/vertex.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/XJBS/SDK-gcc/cdn/vertex.cpp > CMakeFiles/cdn.dir/vertex.cpp.i
 
 CMakeFiles/cdn.dir/vertex.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cdn.dir/vertex.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/vertex.cpp -o CMakeFiles/cdn.dir/vertex.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/XJBS/SDK-gcc/cdn/vertex.cpp -o CMakeFiles/cdn.dir/vertex.cpp.s
 
 CMakeFiles/cdn.dir/vertex.cpp.o.requires:
 .PHONY : CMakeFiles/cdn.dir/vertex.cpp.o.requires
@@ -73,18 +73,18 @@ CMakeFiles/cdn.dir/vertex.cpp.o.provides: CMakeFiles/cdn.dir/vertex.cpp.o.requir
 CMakeFiles/cdn.dir/vertex.cpp.o.provides.build: CMakeFiles/cdn.dir/vertex.cpp.o
 
 CMakeFiles/cdn.dir/cdn.cpp.o: CMakeFiles/cdn.dir/flags.make
-CMakeFiles/cdn.dir/cdn.cpp.o: /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/cdn.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_2)
+CMakeFiles/cdn.dir/cdn.cpp.o: /home/lc/XJBS/SDK-gcc/cdn/cdn.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/XJBS/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cdn.dir/cdn.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/cdn.cpp.o -c /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/cdn.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/cdn.cpp.o -c /home/lc/XJBS/SDK-gcc/cdn/cdn.cpp
 
 CMakeFiles/cdn.dir/cdn.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cdn.dir/cdn.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/cdn.cpp > CMakeFiles/cdn.dir/cdn.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/XJBS/SDK-gcc/cdn/cdn.cpp > CMakeFiles/cdn.dir/cdn.cpp.i
 
 CMakeFiles/cdn.dir/cdn.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cdn.dir/cdn.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/cdn.cpp -o CMakeFiles/cdn.dir/cdn.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/XJBS/SDK-gcc/cdn/cdn.cpp -o CMakeFiles/cdn.dir/cdn.cpp.s
 
 CMakeFiles/cdn.dir/cdn.cpp.o.requires:
 .PHONY : CMakeFiles/cdn.dir/cdn.cpp.o.requires
@@ -95,19 +95,42 @@ CMakeFiles/cdn.dir/cdn.cpp.o.provides: CMakeFiles/cdn.dir/cdn.cpp.o.requires
 
 CMakeFiles/cdn.dir/cdn.cpp.o.provides.build: CMakeFiles/cdn.dir/cdn.cpp.o
 
+CMakeFiles/cdn.dir/Genetic.cpp.o: CMakeFiles/cdn.dir/flags.make
+CMakeFiles/cdn.dir/Genetic.cpp.o: /home/lc/XJBS/SDK-gcc/cdn/Genetic.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/XJBS/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cdn.dir/Genetic.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/Genetic.cpp.o -c /home/lc/XJBS/SDK-gcc/cdn/Genetic.cpp
+
+CMakeFiles/cdn.dir/Genetic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cdn.dir/Genetic.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/XJBS/SDK-gcc/cdn/Genetic.cpp > CMakeFiles/cdn.dir/Genetic.cpp.i
+
+CMakeFiles/cdn.dir/Genetic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cdn.dir/Genetic.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/XJBS/SDK-gcc/cdn/Genetic.cpp -o CMakeFiles/cdn.dir/Genetic.cpp.s
+
+CMakeFiles/cdn.dir/Genetic.cpp.o.requires:
+.PHONY : CMakeFiles/cdn.dir/Genetic.cpp.o.requires
+
+CMakeFiles/cdn.dir/Genetic.cpp.o.provides: CMakeFiles/cdn.dir/Genetic.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/Genetic.cpp.o.provides.build
+.PHONY : CMakeFiles/cdn.dir/Genetic.cpp.o.provides
+
+CMakeFiles/cdn.dir/Genetic.cpp.o.provides.build: CMakeFiles/cdn.dir/Genetic.cpp.o
+
 CMakeFiles/cdn.dir/deploy.cpp.o: CMakeFiles/cdn.dir/flags.make
-CMakeFiles/cdn.dir/deploy.cpp.o: /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/deploy.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_3)
+CMakeFiles/cdn.dir/deploy.cpp.o: /home/lc/XJBS/SDK-gcc/cdn/deploy.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/XJBS/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cdn.dir/deploy.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/deploy.cpp.o -c /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/deploy.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/deploy.cpp.o -c /home/lc/XJBS/SDK-gcc/cdn/deploy.cpp
 
 CMakeFiles/cdn.dir/deploy.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cdn.dir/deploy.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/deploy.cpp > CMakeFiles/cdn.dir/deploy.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/XJBS/SDK-gcc/cdn/deploy.cpp > CMakeFiles/cdn.dir/deploy.cpp.i
 
 CMakeFiles/cdn.dir/deploy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cdn.dir/deploy.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/deploy.cpp -o CMakeFiles/cdn.dir/deploy.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/XJBS/SDK-gcc/cdn/deploy.cpp -o CMakeFiles/cdn.dir/deploy.cpp.s
 
 CMakeFiles/cdn.dir/deploy.cpp.o.requires:
 .PHONY : CMakeFiles/cdn.dir/deploy.cpp.o.requires
@@ -119,18 +142,18 @@ CMakeFiles/cdn.dir/deploy.cpp.o.provides: CMakeFiles/cdn.dir/deploy.cpp.o.requir
 CMakeFiles/cdn.dir/deploy.cpp.o.provides.build: CMakeFiles/cdn.dir/deploy.cpp.o
 
 CMakeFiles/cdn.dir/io.cpp.o: CMakeFiles/cdn.dir/flags.make
-CMakeFiles/cdn.dir/io.cpp.o: /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/io.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_4)
+CMakeFiles/cdn.dir/io.cpp.o: /home/lc/XJBS/SDK-gcc/cdn/io.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/XJBS/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cdn.dir/io.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/io.cpp.o -c /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/io.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/io.cpp.o -c /home/lc/XJBS/SDK-gcc/cdn/io.cpp
 
 CMakeFiles/cdn.dir/io.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cdn.dir/io.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/io.cpp > CMakeFiles/cdn.dir/io.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/XJBS/SDK-gcc/cdn/io.cpp > CMakeFiles/cdn.dir/io.cpp.i
 
 CMakeFiles/cdn.dir/io.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cdn.dir/io.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/io.cpp -o CMakeFiles/cdn.dir/io.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/XJBS/SDK-gcc/cdn/io.cpp -o CMakeFiles/cdn.dir/io.cpp.s
 
 CMakeFiles/cdn.dir/io.cpp.o.requires:
 .PHONY : CMakeFiles/cdn.dir/io.cpp.o.requires
@@ -142,18 +165,18 @@ CMakeFiles/cdn.dir/io.cpp.o.provides: CMakeFiles/cdn.dir/io.cpp.o.requires
 CMakeFiles/cdn.dir/io.cpp.o.provides.build: CMakeFiles/cdn.dir/io.cpp.o
 
 CMakeFiles/cdn.dir/graph.cpp.o: CMakeFiles/cdn.dir/flags.make
-CMakeFiles/cdn.dir/graph.cpp.o: /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/graph.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_5)
+CMakeFiles/cdn.dir/graph.cpp.o: /home/lc/XJBS/SDK-gcc/cdn/graph.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/XJBS/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cdn.dir/graph.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/graph.cpp.o -c /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/graph.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/graph.cpp.o -c /home/lc/XJBS/SDK-gcc/cdn/graph.cpp
 
 CMakeFiles/cdn.dir/graph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cdn.dir/graph.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/graph.cpp > CMakeFiles/cdn.dir/graph.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/XJBS/SDK-gcc/cdn/graph.cpp > CMakeFiles/cdn.dir/graph.cpp.i
 
 CMakeFiles/cdn.dir/graph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cdn.dir/graph.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/graph.cpp -o CMakeFiles/cdn.dir/graph.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/XJBS/SDK-gcc/cdn/graph.cpp -o CMakeFiles/cdn.dir/graph.cpp.s
 
 CMakeFiles/cdn.dir/graph.cpp.o.requires:
 .PHONY : CMakeFiles/cdn.dir/graph.cpp.o.requires
@@ -164,19 +187,42 @@ CMakeFiles/cdn.dir/graph.cpp.o.provides: CMakeFiles/cdn.dir/graph.cpp.o.requires
 
 CMakeFiles/cdn.dir/graph.cpp.o.provides.build: CMakeFiles/cdn.dir/graph.cpp.o
 
+CMakeFiles/cdn.dir/CostFlow.cpp.o: CMakeFiles/cdn.dir/flags.make
+CMakeFiles/cdn.dir/CostFlow.cpp.o: /home/lc/XJBS/SDK-gcc/cdn/CostFlow.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/XJBS/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cdn.dir/CostFlow.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/CostFlow.cpp.o -c /home/lc/XJBS/SDK-gcc/cdn/CostFlow.cpp
+
+CMakeFiles/cdn.dir/CostFlow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cdn.dir/CostFlow.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/XJBS/SDK-gcc/cdn/CostFlow.cpp > CMakeFiles/cdn.dir/CostFlow.cpp.i
+
+CMakeFiles/cdn.dir/CostFlow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cdn.dir/CostFlow.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/XJBS/SDK-gcc/cdn/CostFlow.cpp -o CMakeFiles/cdn.dir/CostFlow.cpp.s
+
+CMakeFiles/cdn.dir/CostFlow.cpp.o.requires:
+.PHONY : CMakeFiles/cdn.dir/CostFlow.cpp.o.requires
+
+CMakeFiles/cdn.dir/CostFlow.cpp.o.provides: CMakeFiles/cdn.dir/CostFlow.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cdn.dir/build.make CMakeFiles/cdn.dir/CostFlow.cpp.o.provides.build
+.PHONY : CMakeFiles/cdn.dir/CostFlow.cpp.o.provides
+
+CMakeFiles/cdn.dir/CostFlow.cpp.o.provides.build: CMakeFiles/cdn.dir/CostFlow.cpp.o
+
 CMakeFiles/cdn.dir/edge.cpp.o: CMakeFiles/cdn.dir/flags.make
-CMakeFiles/cdn.dir/edge.cpp.o: /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/edge.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_6)
+CMakeFiles/cdn.dir/edge.cpp.o: /home/lc/XJBS/SDK-gcc/cdn/edge.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/lc/XJBS/SDK-gcc/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/cdn.dir/edge.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/edge.cpp.o -c /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/edge.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cdn.dir/edge.cpp.o -c /home/lc/XJBS/SDK-gcc/cdn/edge.cpp
 
 CMakeFiles/cdn.dir/edge.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cdn.dir/edge.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/edge.cpp > CMakeFiles/cdn.dir/edge.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/lc/XJBS/SDK-gcc/cdn/edge.cpp > CMakeFiles/cdn.dir/edge.cpp.i
 
 CMakeFiles/cdn.dir/edge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cdn.dir/edge.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/Downloads/codecraft2017/SDK-gcc/cdn/edge.cpp -o CMakeFiles/cdn.dir/edge.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/lc/XJBS/SDK-gcc/cdn/edge.cpp -o CMakeFiles/cdn.dir/edge.cpp.s
 
 CMakeFiles/cdn.dir/edge.cpp.o.requires:
 .PHONY : CMakeFiles/cdn.dir/edge.cpp.o.requires
@@ -191,34 +237,40 @@ CMakeFiles/cdn.dir/edge.cpp.o.provides.build: CMakeFiles/cdn.dir/edge.cpp.o
 cdn_OBJECTS = \
 "CMakeFiles/cdn.dir/vertex.cpp.o" \
 "CMakeFiles/cdn.dir/cdn.cpp.o" \
+"CMakeFiles/cdn.dir/Genetic.cpp.o" \
 "CMakeFiles/cdn.dir/deploy.cpp.o" \
 "CMakeFiles/cdn.dir/io.cpp.o" \
 "CMakeFiles/cdn.dir/graph.cpp.o" \
+"CMakeFiles/cdn.dir/CostFlow.cpp.o" \
 "CMakeFiles/cdn.dir/edge.cpp.o"
 
 # External object files for target cdn
 cdn_EXTERNAL_OBJECTS =
 
-/home/lc/Downloads/codecraft2017/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/vertex.cpp.o
-/home/lc/Downloads/codecraft2017/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/cdn.cpp.o
-/home/lc/Downloads/codecraft2017/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/deploy.cpp.o
-/home/lc/Downloads/codecraft2017/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/io.cpp.o
-/home/lc/Downloads/codecraft2017/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/graph.cpp.o
-/home/lc/Downloads/codecraft2017/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/edge.cpp.o
-/home/lc/Downloads/codecraft2017/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/build.make
-/home/lc/Downloads/codecraft2017/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/lc/Downloads/codecraft2017/SDK-gcc/bin/cdn"
+/home/lc/XJBS/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/vertex.cpp.o
+/home/lc/XJBS/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/cdn.cpp.o
+/home/lc/XJBS/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/Genetic.cpp.o
+/home/lc/XJBS/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/deploy.cpp.o
+/home/lc/XJBS/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/io.cpp.o
+/home/lc/XJBS/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/graph.cpp.o
+/home/lc/XJBS/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/CostFlow.cpp.o
+/home/lc/XJBS/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/edge.cpp.o
+/home/lc/XJBS/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/build.make
+/home/lc/XJBS/SDK-gcc/bin/cdn: CMakeFiles/cdn.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/lc/XJBS/SDK-gcc/bin/cdn"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cdn.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/cdn.dir/build: /home/lc/Downloads/codecraft2017/SDK-gcc/bin/cdn
+CMakeFiles/cdn.dir/build: /home/lc/XJBS/SDK-gcc/bin/cdn
 .PHONY : CMakeFiles/cdn.dir/build
 
 CMakeFiles/cdn.dir/requires: CMakeFiles/cdn.dir/vertex.cpp.o.requires
 CMakeFiles/cdn.dir/requires: CMakeFiles/cdn.dir/cdn.cpp.o.requires
+CMakeFiles/cdn.dir/requires: CMakeFiles/cdn.dir/Genetic.cpp.o.requires
 CMakeFiles/cdn.dir/requires: CMakeFiles/cdn.dir/deploy.cpp.o.requires
 CMakeFiles/cdn.dir/requires: CMakeFiles/cdn.dir/io.cpp.o.requires
 CMakeFiles/cdn.dir/requires: CMakeFiles/cdn.dir/graph.cpp.o.requires
+CMakeFiles/cdn.dir/requires: CMakeFiles/cdn.dir/CostFlow.cpp.o.requires
 CMakeFiles/cdn.dir/requires: CMakeFiles/cdn.dir/edge.cpp.o.requires
 .PHONY : CMakeFiles/cdn.dir/requires
 
@@ -227,6 +279,6 @@ CMakeFiles/cdn.dir/clean:
 .PHONY : CMakeFiles/cdn.dir/clean
 
 CMakeFiles/cdn.dir/depend:
-	cd /home/lc/Downloads/codecraft2017/SDK-gcc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lc/Downloads/codecraft2017/SDK-gcc/cdn /home/lc/Downloads/codecraft2017/SDK-gcc/cdn /home/lc/Downloads/codecraft2017/SDK-gcc/build /home/lc/Downloads/codecraft2017/SDK-gcc/build /home/lc/Downloads/codecraft2017/SDK-gcc/build/CMakeFiles/cdn.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lc/XJBS/SDK-gcc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lc/XJBS/SDK-gcc/cdn /home/lc/XJBS/SDK-gcc/cdn /home/lc/XJBS/SDK-gcc/build /home/lc/XJBS/SDK-gcc/build /home/lc/XJBS/SDK-gcc/build/CMakeFiles/cdn.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/cdn.dir/depend
 

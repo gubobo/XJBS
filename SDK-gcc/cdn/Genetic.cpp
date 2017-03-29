@@ -8,7 +8,6 @@
 #include <cmath>
 #include <cstdlib>
 #include <algorithm>
-#include "Dijkstra.h"
 #include "Genetic.h"
 
 Genetic::Genetic(Graph rawGraph, vector<list<specialNode>> initServer)
@@ -20,7 +19,7 @@ Genetic::Genetic(Graph rawGraph, vector<list<specialNode>> initServer)
 
     _graph = rawGraph;
     _best.isWork = 0;
-    _best.totalCost = Dijkstra::MAXCOST;
+    _best.totalCost = Graph::MAXCOST;
 }
 
 Solution Genetic::Optimize()

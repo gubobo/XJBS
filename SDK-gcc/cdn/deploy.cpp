@@ -21,9 +21,25 @@ void deploy_server(char * topo[MAX_EDGE_NUM], int line_num,char * filename)
     specialNode tmp;
     tmp.relevantNumber = 4;
     G.server.push_back(tmp);
+    tmp.relevantNumber = 8;
+    G.server.push_back(tmp);
     tmp.relevantNumber = 10;
     G.server.push_back(tmp);
+    tmp.relevantNumber = 15;
+    G.server.push_back(tmp);
+    tmp.relevantNumber = 18;
+    G.server.push_back(tmp);
     tmp.relevantNumber = 20;
+    G.server.push_back(tmp);
+    tmp.relevantNumber = 24;
+    G.server.push_back(tmp);
+    tmp.relevantNumber = 26;
+    G.server.push_back(tmp);
+    tmp.relevantNumber = 34;
+    G.server.push_back(tmp);
+    tmp.relevantNumber = 41;
+    G.server.push_back(tmp);
+    tmp.relevantNumber = 47;
     G.server.push_back(tmp);
 
     CostFlow test;

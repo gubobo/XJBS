@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <list>
+#include <stack>
 #include <stdio.h>
 #include <cstring>
 #include "graph.h"
@@ -17,6 +18,7 @@
 
 using std::vector;
 using std::list;
+using std::stack;
 
 class Solution
 {
@@ -24,7 +26,7 @@ public:
     bool isWork; //是否可行
     int totalCost; // 总花费
     int pathNumber; // 总线路数目
-    list<list<int>> path; //所有路径
+    list<stack<int>> path; //所有路径
     list<specialNode> server; // 服务器
 
     bool operator < (const Solution &s) const

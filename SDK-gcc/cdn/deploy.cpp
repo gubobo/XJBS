@@ -10,6 +10,46 @@ using std::cout;
 using std::ofstream;
 
 //寻找最小费用流的节点数和初始节点位置
+//返回最佳的服务器节点数目
+int findServer(Graph graph){
+    int rankNumber = 25;//人为修改
+    int clientNumber = graph.vertexNumber;
+    int step = clientNumber / rankNumber + 1;
+
+    int k = clientNumber;//将0-k个节点作为服务器的初始节点
+    long long cost = graph.MAXCOST;
+    CostFlow cf;
+    for(int i=0; i<clientNumber; i=i+step){
+        graph.clearServer();
+        graph.setServer(i);
+        Solution s = cf.FindPath(graph);
+        if(s.isWork && cost>s.totalCost){
+            cost = s.totalCost;
+            k = i;
+        }
+    }
+    //之后几个节点
+    for(int i=k+1; i<k+step && i<clientNumber; i++){
+        graph.clearServer();
+        graph.setServer(i);
+        Solution s = cf.FindPath(graph);
+        if(s.isWork && cost>s.totalCost){
+            cost = s.totalCost;
+            k = i;
+        }
+    }
+    //之前几个节点
+    for(int i=k-1; i>k-step && i>=0; i--){
+        graph.clearServer();
+        graph.setServer(i);
+        Solution s = cf.FindPath(graph);
+        if(s.isWork && cost>s.totalCost){
+            cost = s.totalCost;
+            k = i;
+        }
+    }
+    return k;
+}
 
 
 //You need to complete the function 

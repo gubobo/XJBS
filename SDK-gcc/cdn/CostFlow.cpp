@@ -22,24 +22,24 @@ Solution CostFlow::FindPath(Graph graph)
     _result.server = _graph.server;
     _result.totalCost = _graph.server.size() * _graph.singleServerCost;
 
-    int i, j;
     bool isEnd = 0;
 
     Dijkstra n(_graph);
 
     while (!isEnd)
     {
+        n.init(_graph);
         // 寻找所有最短路径对
         _costPair = n.ServerPath();
 
         // 给路径对通过单位流量花费排序
         std::sort(_costPair.begin(), _costPair.end());
-        
+
         // 如果有路径对
-        if (!_costPair.empty())
+        if (_costPair[0].cost != MAXCOST)
             DelMiniFlow();
         // 没有路径对，找不到路径，就是这种取点不成立
-        else if (_costPair.empty()) 
+        else if (_costPair[0].cost == MAXCOST)
         {
             _result.isWork = 0;
             isEnd = 1;

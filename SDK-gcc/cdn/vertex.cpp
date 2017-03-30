@@ -18,7 +18,7 @@ void V::setServer(){
 void V::resetServer(){
     isServer = 0;
 }
-
+/*
 void V::addEdge(E edge){
     Edge.push_back(edge);
 }
@@ -31,7 +31,7 @@ E V::findEdge(int Dest){
     }
     return E();
 }
-
+*/
 
 void V::setCapability(int inCap, int outCap){
     inCapability = inCap;

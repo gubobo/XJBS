@@ -20,7 +20,7 @@ Genetic::Genetic(Graph rawGraph, vector<list<specialNode>> initServer)
 
     _graph = rawGraph;
     _best.isWork = 0;
-    _best.totalCost = Dijkstra::MAXCOST;
+    _best.totalCost = MAXCOST;
 }
 
 Solution Genetic::Optimize()
@@ -95,7 +95,7 @@ void Genetic::_Variation()
 
 double Genetic::_randReal()
 {
-    return rand() / RAND_MAX;
+    return (double)rand() / RAND_MAX;
 }
 
 specialNode Genetic::_getNewVertex(int i)
@@ -132,8 +132,14 @@ void Genetic::_merge(int i)
     while(getNumber--)
     {
         if ((*iter1).outBandwidth > (*iter2).outBandwidth)
+        {
             _gene[i + _totalNumber - _deleteNumber].server.push_back(specialNode((*iter1).relevantNumber));
+            ++iter1;
+        }
         else
+        {
             _gene[i + _totalNumber - _deleteNumber].server.push_back(specialNode((*iter2).relevantNumber));
+            ++iter2;
+        }
     }
 }

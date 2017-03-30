@@ -11,19 +11,26 @@ Dijkstra::Dijkstra(Graph graph)
 {
     _graph = graph;
     _vertexNumber = graph.vertexNumber;
+
     _path.leastCost = vector<int>(_vertexNumber, MAXCOST); //默认花费无限大
     _path.previous = vector<int>(_vertexNumber, noVertex); //前驱未知
-    _usedVertex = vector<int>(_vertexNumber, 0); //点都没用过
+   _usedVertex = vector<int>(_vertexNumber, 0); //点都没用过
 }
 
-Path Dijkstra::SearchPath(int &start)
+Path Dijkstra::SearchPath(int start)
 {
     int present = start;
     _path.start = start;
-    int tmpNext;
     list<int>::iterator i;
 
     bool isDone = 0;
+
+    for (int i = 0; i < _vertexNumber; ++i)
+    {
+        _path.leastCost[i] = MAXCOST;
+        _path.previous[i] = noVertex;
+        _usedVertex[i] = 0;
+    }
 
     _path.leastCost[present] = 0;
     _usedVertex[present] = 1;
@@ -32,7 +39,6 @@ Path Dijkstra::SearchPath(int &start)
     {
         for (i = _graph.Table[present].nextVertex.begin() ; i != _graph.Table[present].nextVertex.end(); ++i) 
         {
-            tmpNext = *i;
             if (_graph.edge[present][*i].perCost + _path.leastCost[present] < _path.leastCost[*i])
             {
                 _path.leastCost[*i] = _graph.edge[present][*i].perCost + _path.leastCost[present];
@@ -40,7 +46,7 @@ Path Dijkstra::SearchPath(int &start)
             }
         }
         present = _FindNext();
-        if (present != noVertex) isDone = 1;
+        if (present == noVertex) isDone = 1;
     }
 
     return _path;
@@ -58,8 +64,8 @@ vector<Pair> Dijkstra::ServerPath()
         onePath = SearchPath((*i).relevantNumber);
         for (j = _graph.client.begin(); j != _graph.client.end(); ++j)
         {
-            costPair[k].server.relevantNumber = onePath.start;;
-            costPair[k].client.relevantNumber = (*j).relevantNumber;
+            costPair[k].server = *i;
+            costPair[k].client = *j;
             costPair[k].cost = onePath.leastCost[(*j).relevantNumber];
             costPair[k].previous = onePath.previous;
             ++k;
@@ -86,11 +92,18 @@ int Dijkstra::_FindNext()
     int tmp = MAXCOST;
     for (i = 0; i < _vertexNumber; ++i)
     {
-        if (tmp < _path.leastCost[i] && !_usedVertex[i])
+        if (tmp > _path.leastCost[i] && !_usedVertex[i])
         {
             j = i;
             tmp = _path.leastCost[i];
         }
     }
+    _usedVertex[j] = 1;
     return j;
+}
+
+void Dijkstra::init(Graph graph)
+{
+    _graph = graph;
+    _vertexNumber = graph.vertexNumber;
 }

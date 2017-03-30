@@ -9,7 +9,8 @@ int main(int argc, char *argv[])
     char *topo[MAX_EDGE_NUM];
     int line_num;
 
-    char *topo_file = argv[1];
+//    char *topo_file = "case0.txt";
+      char *topo_file = argv[1];
 
     line_num = read_file(topo, MAX_EDGE_NUM, topo_file);
 
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
     }
 
     char *result_file = argv[2];
+//    char *result_file = "result.txt";
 
     deploy_server(topo, line_num, result_file);
 

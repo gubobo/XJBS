@@ -15,6 +15,9 @@
 using std::list;
 using std::vector;
 
+const int MAXCOST = 1000000; //线路不存在
+const int noVertex = -1; //点不存在
+
 // 记录一下用dijkstra算法寻找到的最佳路径
 class Path
 {
@@ -41,10 +44,6 @@ public:
 // 最短路径算法
 class Dijkstra
 {
-public:
-    static const int MAXCOST = 1000000; //线路不存在
-    static const int noVertex = -1; //点不存在
-
 private:
     int _vertexNumber;
     Graph _graph;
@@ -59,13 +58,15 @@ public:
     Dijkstra(Graph graph);
 
     // 寻找单源最短路
-    Path SearchPath(int &start);
+    Path SearchPath(int start);
 
     // 寻找从所有服务器节点出发的最短路径
     vector<Pair> ServerPath();
 
     // 寻找从所有消费节点出发的最短路径
     vector<Path> ClientPath();
+
+    void init(Graph graph);
 };
 
 #endif //__DIJKSTRA_H__

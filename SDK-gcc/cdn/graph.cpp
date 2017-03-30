@@ -25,7 +25,7 @@ int Graph::readNumber(char * & str){
     }
     return number;
 }
-
+/*
 void Graph::calculateDegree(){
     degree1 = new int [vertexNumber];
     degree2 = new int [vertexNumber];
@@ -40,6 +40,7 @@ void Graph::calculateDegree(){
         }
     }
 }
+*/
 
 void Graph::creatGraph(char ** topo){
     int line = 0;//指示行号
@@ -66,6 +67,7 @@ void Graph::creatGraph(char ** topo){
     }
 
     //构造邻接表
+    edge = vector<vector<E>>(vertexNumber, vector<E>(vertexNumber));
     int vertex1, vertex2, bandwidth, cost;
     for(int i=0; i<edgeNumber; i++){
         vertex1 = readNumber(p);
@@ -77,9 +79,12 @@ void Graph::creatGraph(char ** topo){
         //cout<<vertex1<<' '<<vertex2<<' '<<bandwidth<<' '<<cost<<'\n';
         E tmp;
         tmp.setEdge(bandwidth, cost, vertex2);
-        Table[vertex1].addEdge(tmp);
+        edge[vertex1][vertex2] = tmp;
         tmp.setEdge(bandwidth, cost, vertex1);
-        Table[vertex2].addEdge(tmp);
+        edge[vertex2][vertex1] = tmp;
+
+        Table[vertex2].nextVertex.push_back(vertex1);
+        Table[vertex1].nextVertex.push_back(vertex2);
     }
     line++;
     p = topo[line];
@@ -114,6 +119,7 @@ void Graph::creatGraph(char ** topo){
     }
 }
 
+/*
 void Graph::saveGraph(){
     //邻接矩阵
     int edge_tmp[vertexNumber][vertexNumber];
@@ -194,7 +200,7 @@ void Graph::saveGraph(){
     delete [] topo_tmp2;
 }
 
-
+*/
 
 /*
 //邻接矩阵表示情况下的建图函数

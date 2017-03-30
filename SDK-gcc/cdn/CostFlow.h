@@ -52,12 +52,12 @@ private:
 
 private:
     Solution _result;
-    vector<Pair> _costPair;
+    list<Pair> _costPair;
 
 public:
     CostFlow();
     Solution FindPath(Graph graph); // 寻找所有路径对
-    void DelMiniFlow(); // 一条路线上的最小流量
+    bool DelMiniFlow(); // 一条路线上的最小流量
 };
 
 #endif

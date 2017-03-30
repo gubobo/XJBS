@@ -90,6 +90,7 @@ public:
     vector <Path> clientPathTable;
 
     list <specialNode> client;//存储client的节点
+    vector<bool> isClient;//快速判断是不是client节点
     list <specialNode> server;//存储server的节点
     int * degree1;//每个节点的度(按照连接的边数来计算)
     int * degree2;//每个节点的度(按照连接的边上的总带宽来计算)
@@ -123,9 +124,9 @@ public:
     //
     int findNext(vector<bool> usedVertex, Path path);
     // 寻找单源最短路
-    Path searchPath(int start, int end = noVertex);
+    Path searchPath(int start, int end = noVertex, bool isComplete = true);
     // 寻找从所有服务器节点出发的最短路径
-    vector<Pair> serverPath();
+    list<Pair> serverPath();
     // 寻找从所有消费节点出发的最短路径
     vector<Path> clientPath();
 

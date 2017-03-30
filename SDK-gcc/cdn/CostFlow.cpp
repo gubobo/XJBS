@@ -30,7 +30,7 @@ Solution CostFlow::FindPath(Graph graph)
         _costPair = _graph.serverPath();
 
         // 给路径对通过单位流量花费排序
-        std::sort(_costPair.begin(), _costPair.end());
+        _costPair.sort();
 
         // 消费节点删除完毕，也就是都已经满足
         if (_graph.client.empty())
@@ -38,35 +38,33 @@ Solution CostFlow::FindPath(Graph graph)
             _result.isWork = 1;
             isEnd = 1;
         }
-
+        // 没有路径对，找不到路径，就是这种取点不成立
+        else if (_costPair.front().cost == Graph::MAXCOST)
+        {
+            _result.isWork = 0;
+            isEnd = 1;
+        }
         else
         {
             // 如果有路径对
-            if (_costPair[0].cost != Graph::MAXCOST)
-                DelMiniFlow();
-            // 没有路径对，找不到路径，就是这种取点不成立
-            else if (_costPair[0].cost == Graph::MAXCOST)
-            {
-                _result.isWork = 0;
-                isEnd = 1;
-            }
+            while (_costPair.front().cost != Graph::MAXCOST && !_costPair.empty() && !DelMiniFlow());
         }
     }
 
     return _result;
 }
 
-void CostFlow::DelMiniFlow()
+bool CostFlow::DelMiniFlow()
 {
-    int miniFlow = _costPair[0].client.reqBandwidth;
-    int presentVertex = _costPair[0].client.relevantNumber;
-    int previousVertex = _costPair[0].client.relevantNumber;
+    int miniFlow = _costPair.front().client.reqBandwidth;
+    int presentVertex = _costPair.front().client.relevantNumber;
+    int previousVertex = _costPair.front().client.relevantNumber;
 
     // 找一下在最小花费路径上的带宽最小值
-    while (presentVertex != _costPair[0].server.relevantNumber)
+    while (presentVertex != _costPair.front().server.relevantNumber)
     {
         previousVertex = presentVertex;
-        presentVertex = _costPair[0].previous[presentVertex];
+        presentVertex = _costPair.front().previous[presentVertex];
         if (miniFlow > _graph.edge[presentVertex][previousVertex].remainedBandwidth)
             miniFlow = _graph.edge[presentVertex][previousVertex].remainedBandwidth;
     }
@@ -74,29 +72,34 @@ void CostFlow::DelMiniFlow()
     // 如果带宽最小值比消费节点需求大，那么消费节点所需带宽就是
     // 这条路径上需要删除掉的带宽值
     // 反过来就是删除带宽最小值
-    if (_costPair[0].client.reqBandwidth == miniFlow)
+    if (_costPair.front().client.reqBandwidth == miniFlow)
 //    {
 //        list<specialNode>::iterator i;
-//        for (i = _graph.client.begin(); i != _graph.client.end(); ++i)
-//            if ((*i).relevantNumber == _costPair[0].client.relevantNumber)
+//        for (i = _graph.clientobegin(); i != _graph.client.end(); ++i)
+//            if ((*i).relevantNumber == _costPair.front().client.relevantNumber)
 //                _graph.client.erase(i);
 //    }
-        _graph.client.remove(_costPair[0].client);
+        _graph.client.remove(_costPair.front().client);
     else
-        _costPair[0].client.reqBandwidth -= miniFlow;
+        _costPair.front().client.reqBandwidth -= miniFlow;
+
+    if (miniFlow == 0) return true;
 
     // 在这个循环里带宽删减
     // 如果出现删减到0的那么就把该路径去掉
     stack<int> tmpPath;
-    presentVertex = _costPair[0].client.relevantNumber;
+    presentVertex = _costPair.front().client.relevantNumber;
 
     tmpPath.push(miniFlow); //带宽入栈
     tmpPath.push(presentVertex); //终点入栈
 
-    while (presentVertex != _costPair[0].server.relevantNumber)
+    if (presentVertex == _costPair.front().server.relevantNumber)
+        tmpPath.push(presentVertex);
+
+    while (presentVertex != _costPair.front().server.relevantNumber)
     {
         previousVertex = presentVertex;
-        presentVertex = _costPair[0].previous[presentVertex];
+        presentVertex = _costPair.front().previous[presentVertex];
         tmpPath.push(presentVertex);
 
         if (_graph.edge[presentVertex][previousVertex].remainedBandwidth -= miniFlow);
@@ -115,7 +118,11 @@ void CostFlow::DelMiniFlow()
     list<specialNode>::iterator i;
     for (i = _result.server.begin(); i != _result.server.end(); ++i)
     {
-        if ((*i).relevantNumber == _costPair[0].server.relevantNumber)
+        if ((*i).relevantNumber == _costPair.front().server.relevantNumber)
             (*i).outBandwidth += miniFlow;
     }
+
+    _costPair.pop_front(); //delete an element
+
+    return false;
 }

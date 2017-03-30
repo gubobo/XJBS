@@ -103,6 +103,7 @@ void Graph::creatGraph(char ** topo){
     //cout<<'\n';
 
     //记录消费节点信息
+    isClient = vector<bool>(vertexNumber, false);
     int srcNumber, desNumber, reqBandwidth;
     for(int i=0; i<costVertexNumber; i++){
         srcNumber = readNumber(p);
@@ -118,6 +119,7 @@ void Graph::creatGraph(char ** topo){
         specialNode tmp;
         tmp.sequenceNumber = srcNumber;
         tmp.relevantNumber = desNumber;
+        isClient[desNumber] = true;
         tmp.reqBandwidth = reqBandwidth;
         client.push_back(tmp);
     }
@@ -126,7 +128,7 @@ void Graph::creatGraph(char ** topo){
     //calculateDegree();
 
     //为消费节点建立路由表
-//    clientPathTable = clientPath();
+    clientPathTable = clientPath();
 //    //计算中心点和中央点
 //    calculateCenter1();
 //    calculateCenter2();
@@ -244,7 +246,6 @@ void Graph::calculateCenter1(){
             center1 = i;
         }
     }
-    delete [] cost;
 }
 
 //计算中央点函数
@@ -291,7 +292,7 @@ void Graph::Max_T(int center){
 }
 
 //生成一条路由,并且保存了路径中的倒数第二个节点
-Path Graph::searchPath(int start, int end)
+Path Graph::searchPath(int start, int end, bool isComplete)
 {
     Path path(vertexNumber,MAXCOST,noVertex);
     vector<bool> usedVertex = vector<bool>(vertexNumber, false); //点都没用过
@@ -304,6 +305,8 @@ Path Graph::searchPath(int start, int end)
 
     path.leastCost[present] = 0;
     
+    int count = 0;
+
     while(!isDone)
     {
         //加入一个新节点
@@ -319,32 +322,38 @@ Path Graph::searchPath(int start, int end)
         }
         //寻找下一个新节点
         present = findNext(usedVertex, path);
-        if (present == end)
+        if (present != end && !isComplete && isClient[present])
+            ++count;
+        if (present == end || count == 2)
             isDone = 1;
     }
 
     return path;
 }
 
-vector<Pair> Graph::serverPath()
+list<Pair> Graph::serverPath()
 {
     list<specialNode>::iterator i, j;
     int k = 0;
     Path onePath(vertexNumber, MAXCOST, noVertex);
-    vector<Pair> costPair(server.size() * client.size());
+    list<Pair> costPair;
+    Pair tmpPair;
 
     for (i = server.begin(); i != server.end(); ++i)
     {
         //这个函数可以优化,可以在所有client进入路径后,终止函数
-        onePath = searchPath((*i).relevantNumber);
+        onePath = searchPath((*i).relevantNumber, noVertex, false);
         for (j = client.begin(); j != client.end(); ++j)
         {
-            costPair[k].server = *i;
-            costPair[k].client = *j;
-            costPair[k].cost = onePath.leastCost[(*j).relevantNumber];
-            costPair[k].previous = onePath.previous;
-            ++k;
-        }
+            if (onePath.leastCost[(*j).relevantNumber] != MAXCOST)
+            {
+                tmpPair.server = *i;
+                tmpPair.client = *j;
+                tmpPair.cost = onePath.leastCost[(*j).relevantNumber];
+                tmpPair.previous = onePath.previous;
+                costPair.push_back(tmpPair);
+            }
+       }
     }
     return costPair;
 }

@@ -126,13 +126,13 @@ void Graph::creatGraph(char ** topo){
     //calculateDegree();
 
     //为消费节点建立路由表
-    clientPathTable = clientPath();
-    //计算中心点和中央点
-    calculateCenter1();
-    calculateCenter2();
-    //生成优先级定点序列
-    //Max_T(center1);
-    Max_T(center2);
+//    clientPathTable = clientPath();
+//    //计算中心点和中央点
+//    calculateCenter1();
+//    calculateCenter2();
+//    //生成优先级定点序列
+//    //Max_T(center1);
+//    Max_T(center2);
 }
 
 void Graph::saveGraph(){

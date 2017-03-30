@@ -14,8 +14,8 @@ Genetic::Genetic(Graph rawGraph, vector<list<specialNode>> initServer)
 {
     srand(unsigned(time(NULL)));
 
-    _totalNumber = 60;
-    _deleteNumber = 20;
+    _totalNumber = 30;
+    _deleteNumber = 10;
 
     _graph = rawGraph;
     _best.isWork = 0;

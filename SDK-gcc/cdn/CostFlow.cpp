@@ -89,7 +89,9 @@ void CostFlow::DelMiniFlow()
     // 如果出现删减到0的那么就把该路径去掉
     stack<int> tmpPath;
     presentVertex = _costPair[0].client.relevantNumber;
-    tmpPath.push(presentVertex);
+
+    tmpPath.push(miniFlow); //带宽入栈
+    tmpPath.push(presentVertex); //终点入栈
 
     while (presentVertex != _costPair[0].server.relevantNumber)
     {

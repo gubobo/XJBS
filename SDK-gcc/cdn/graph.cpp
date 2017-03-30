@@ -78,6 +78,7 @@ void Graph::creatGraph(char ** topo){
         subTable.push_back(tmp);
     }
 
+    edge = vector<vector<E>>(vertexNumber, vector<E>(vertexNumber));
     //构造邻接表
     int vertex1, vertex2, bandwidth, cost;
     for(int i=0; i<edgeNumber; i++){
@@ -90,9 +91,9 @@ void Graph::creatGraph(char ** topo){
         //cout<<vertex1<<' '<<vertex2<<' '<<bandwidth<<' '<<cost<<'\n';
         E tmp;
         tmp.setEdge(bandwidth, cost, vertex2);
-        edge[vertex1].push_back(tmp);
+        edge[vertex1][vertex2] = tmp;
         tmp.setEdge(bandwidth, cost, vertex1);
-        edge[vertex2].push_back(tmp);
+        edge[vertex2][vertex1] = tmp;
 
         Table[vertex1].nextVertex.push_back(vertex2);
         Table[vertex2].nextVertex.push_back(vertex1);
@@ -290,7 +291,7 @@ void Graph::Max_T(int center){
 }
 
 //生成一条路由,并且保存了路径中的倒数第二个节点
-Path Graph::searchPath(int &start, int end = -1)
+Path Graph::searchPath(int start, int end)
 {
     Path path(vertexNumber,MAXCOST,noVertex);
     vector<bool> usedVertex = vector<bool>(vertexNumber, false); //点都没用过
@@ -318,7 +319,7 @@ Path Graph::searchPath(int &start, int end = -1)
         }
         //寻找下一个新节点
         present = findNext(usedVertex, path);
-        if (present != end) 
+        if (present == end)
             isDone = 1;
     }
 
@@ -338,8 +339,8 @@ vector<Pair> Graph::serverPath()
         onePath = searchPath((*i).relevantNumber);
         for (j = client.begin(); j != client.end(); ++j)
         {
-            costPair[k].server.relevantNumber = onePath.start;;
-            costPair[k].client.relevantNumber = (*j).relevantNumber;
+            costPair[k].server = *i;
+            costPair[k].client = *j;
             costPair[k].cost = onePath.leastCost[(*j).relevantNumber];
             costPair[k].previous = onePath.previous;
             ++k;
@@ -357,7 +358,7 @@ vector<Path> Graph::clientPath()
     for (i = client.begin(); i != client.end(); ++i)
     {
         //pathTable[j++] = searchPath((*i).relevantNumber, center1);
-        pathTable[j++] = searchPath((*i).relevantNumber, center2);
+        pathTable[j++] = searchPath((*i).relevantNumber);
     }
     return pathTable;
 }

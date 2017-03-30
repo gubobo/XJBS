@@ -123,7 +123,7 @@ public:
     //
     int findNext(vector<bool> usedVertex, Path path);
     // 寻找单源最短路
-    Path searchPath(int &start, int end);
+    Path searchPath(int start, int end = noVertex);
     // 寻找从所有服务器节点出发的最短路径
     vector<Pair> serverPath();
     // 寻找从所有消费节点出发的最短路径

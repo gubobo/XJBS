@@ -126,7 +126,7 @@ void Graph::creatGraph(char ** topo){
     //calculateDegree();
 
     //为消费节点建立路由表
-//    clientPathTable = clientPath();
+    clientPathTable = clientPath();
 //    //计算中心点和中央点
 //    calculateCenter1();
 //    calculateCenter2();
@@ -287,6 +287,19 @@ void Graph::Max_T(int center){
     //根据t进行排序
     sort(subTable.begin(),subTable.end(),compare);
 
+    }
+}
+
+void Graph::clearServer(){
+    server.clear();
+}
+
+void Graph::setServer(int k){
+    for(int i=0; i<k && i<vertexNumber; i++){
+        specialNode tmp;
+        tmp.sequenceNumber = i;
+        tmp.relevantNumber = subTable[i].index;
+        server.push_back(tmp);
     }
 }
 

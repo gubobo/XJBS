@@ -120,6 +120,9 @@ public:
     //根据trafic大小来生成节点的优先级
     void Max_T(int center);
     
+    void clearServer();
+    void setServer(int k);
+    
     //
     int findNext(vector<bool> usedVertex, Path path);
     // 寻找单源最短路
